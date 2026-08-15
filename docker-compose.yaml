@@ -1,0 +1,15 @@
+services:
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:latest
+    container_name: openwebui
+    ports:
+      - "8899:8080"
+    environment:
+      # Tell Open WebUI where Ollama is
+      - OLLAMA_BASE_URL=http://10.42.0.247:11434
+      # (Optional but common) makes it run smoothly in containers
+      - WEBUI_NAME=Open WebUI
+      - OPEN_TERMINAL_MULTI_USER=true
+    volumes:
+      - /data/openui:/app/backend/data
+
